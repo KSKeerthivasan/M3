@@ -14,13 +14,36 @@ To write a program to prepare EMI calculator using function without return type 
 6.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+#include <math.h>
+void calculateEMI(float principal, float annualRate, int tenureYears);
 
+int main() {
+    float principal, annualRate;
+    int tenureYears;
+    printf("Enter loan amount (principal): ");
+    scanf("%f", &principal);
+    printf("Enter annual interest rate (in %%): ");
+    scanf("%f", &annualRate);
+    printf("Enter loan tenure (in years): ");
+    scanf("%d", &tenureYears);
+    calculateEMI(principal, annualRate, tenureYears);
+    return 0;
+}
+void calculateEMI(float principal, float annualRate, int tenureYears) {
+    float monthlyRate = annualRate / (12 * 100); 
+    int tenureMonths = tenureYears * 12;
+    float emi;
 
+    emi = (principal * monthlyRate * pow(1 + monthlyRate, tenureMonths)) /
+          (pow(1 + monthlyRate, tenureMonths) - 1);
+
+    printf("\nYour EMI is: ₹%.2f per month\n", emi);
+}
+```
 ## OUTPUT
-
-
-
-
+![image](https://github.com/user-attachments/assets/75e4a0a5-f061-4400-b69b-ebbc53094642)
 
 ## RESULT
 
@@ -43,15 +66,28 @@ To write a C program to generate the Fibonacci series for the value 6.
 7.	Stop the program.
 
 ## PROGRAM
-
+```
+#include <stdio.h>
+int main() {
+    int n = 6;  
+    int first = 0, second = 1, next;
+    printf("Fibonacci series for %d terms:\n", n);
+    for (int i = 0; i < n; i++) {
+        if (i <= 1)
+            next = i;
+        else {
+            next = first + second;
+            first = second;
+            second = next;
+        }
+        printf("%d ", next);
+    }
+    printf("\n");
+    return 0;
+}
+```
 ## OUTPUT
-
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/1d29f496-d19d-418c-a9f7-c5e97933fae5)
 
 ## RESULT
 Thus the program to generate the Fibonacci series for the value 6 has been executed successfully.
@@ -71,16 +107,24 @@ To write a C program to read n elements as input and print the last element of t
 5.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+int main() {
+    int n;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    printf("The last element is: %d\n", arr[n - 1]);
 
+    return 0;
+}
+```
 ## OUTPUT
-
-
-
-
-
-
-
-
+![image](https://github.com/user-attachments/assets/f0e345f6-c353-4252-b835-34656ad14a85)
 
 ## RESULT
 Thus the program to read n elements as input and print the last element of the array has been executed successfully.
@@ -101,13 +145,29 @@ To write a C Program to count total number of positive elements in an array.
 6.	Stop the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
+int main() {
+    int n, count = 0;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    for (int i = 0; i < n; i++) {
+        if (arr[i] > 0) {
+            count++;
+        }
+    }
+    printf("Total number of positive elements = %d\n", count);
 
-
+    return 0;
+}
+```
 ## OUTPUT
-
-
-
-
+![image](https://github.com/user-attachments/assets/f0e4a533-bfcc-4aac-b503-6e8a9959ff10)
 
 ## RESULT
 Thus the program to count total number of positive elements in an array has been executed successfully.
@@ -137,10 +197,32 @@ To write a C program to replace all even elements with 'E' in one dimensional ar
  Print the updated array after replacements.
 
 ## Program:
+```
+#include <stdio.h>
+int main() {
+    int n;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter %d integers:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    printf("Modified array (even elements replaced with 'E'):\n");
+    for (int i = 0; i < n; i++) {
+        if (arr[i] % 2 == 0) {
+            printf("E ");
+        } else {
+            printf("%d ", arr[i]);
+        }
+    }
 
+    printf("\n");
+    return 0;
+}
+```
 ## Output:
- 
-
+![image](https://github.com/user-attachments/assets/25259805-2b52-43b5-8915-9b98a3908fe4)
 
 ## Result:
 
